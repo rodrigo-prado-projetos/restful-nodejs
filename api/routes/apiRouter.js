@@ -61,7 +61,7 @@ let apiRouter = express.Router()
 const endpoint = '/'
 
 
-apiRouter.post(endpoint + 'produtos', (req, res) => {
+apiRouter.post(endpoint + 'produtos', checkToken, isAdmin, (req, res) => {
     knex('produto')
         .insert({
             descricao: req.body.descricao,
@@ -80,7 +80,7 @@ apiRouter.post(endpoint + 'produtos', (req, res) => {
         })
 })
 
-apiRouter.put(endpoint + 'produtos/:id', (req, res) => {
+apiRouter.put(endpoint + 'produtos/:id', checkToken, isAdmin, (req, res) => {
     knex('produto')
         .update({
             descricao: req.body.descricao,
@@ -99,7 +99,7 @@ apiRouter.put(endpoint + 'produtos/:id', (req, res) => {
         })
 })
 
-apiRouter.delete(endpoint + 'produtos/:id', checkToken, (req, res) => {
+apiRouter.delete(endpoint + 'produtos/:id', checkToken, isAdmin, checkToken, (req, res) => {
     knex.delete('*').from('produto').where({ id: req.params.id })
         .then(produtos => res.status(200).json(produtos))
         .catch(err => {
