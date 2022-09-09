@@ -82,7 +82,7 @@ apiRouter.post(endpoint + 'produtos', (req, res) => {
 
 apiRouter.put(endpoint + 'produtos', (req, res) => {
     knex('produto')
-        .insert({
+        .update({
             id: req.body.id,
             descricao: req.body.descricao,
             valor: req.body.valor,
