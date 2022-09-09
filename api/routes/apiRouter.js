@@ -28,7 +28,7 @@ apiRouter.get(endpoint + 'produtos/:id', (req, res) => {
             'p',
             knex.raw(
                 'select * from "produto" where "id" = ?',
-                req.path("id")
+                req.id 
             )
         )
         .select('*')
