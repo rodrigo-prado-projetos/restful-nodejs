@@ -23,7 +23,7 @@ apiRouter.get(endpoint + 'produtos', (req, res) => {
 })
 
 apiRouter.get(endpoint + 'produtos/:id', (req, res) => {
-    knex.select('*').from('produto').where( { id: '1' })
+    knex.select('*').from('produto').where( { id: req.id })
         .then(produtos => res.status(200).json(produtos))
         .catch(err => {
             res.status(500).json({
