@@ -22,4 +22,23 @@ apiRouter.get(endpoint + 'produtos', (req, res) => {
         })
 })
 
+apiRouter.get(endpoint + 'produtos:id', (req, res) => {
+    knex
+        .with(
+            'p',
+            knex.raw(
+                'select * from "produto" where "id" = ?',
+                req.query("id")
+            )
+        )
+        .select('*')
+        .from('p')
+        .then(produtos => res.status(200).json(produtos))
+        .catch(err => {
+            res.status(500).json({
+                message: 'Erro ao recuperar produtos - ' + err.message
+            })
+        })
+})
+
 module.exports = apiRouter;
