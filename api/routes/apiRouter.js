@@ -83,11 +83,10 @@ apiRouter.post(endpoint + 'produtos', (req, res) => {
 apiRouter.put(endpoint + 'produtos/:id', (req, res) => {
     knex('produto')
         .update({
-            id: req.params.id,
             descricao: req.body.descricao,
             valor: req.body.valor,
             marca: req.body.marca
-        }, ['id'])
+        }, ['id']).where({ id: req.params.id })
         .then((result) => {
             let produtos = result[0]
             res.status(200).json({ "id": produtos.id })
