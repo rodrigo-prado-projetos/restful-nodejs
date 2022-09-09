@@ -22,13 +22,13 @@ apiRouter.get(endpoint + 'produtos', (req, res) => {
         })
 })
 
-apiRouter.get(endpoint + 'produtos:id', (req, res) => {
+apiRouter.get(endpoint + 'produtos/:id', (req, res) => {
     knex
         .with(
             'p',
             knex.raw(
                 'select * from "produto" where "id" = ?',
-                req.query("id")
+                req.path("id")
             )
         )
         .select('*')
