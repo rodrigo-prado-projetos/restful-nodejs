@@ -62,7 +62,7 @@ const endpoint = '/'
 
 
 apiRouter.post(endpoint + 'produtos', (req, res) => {
-    knex('produtos')
+    knex('produto')
         .insert({
             descricao: req.body.descricao,
             valor: req.body.valor,
@@ -81,7 +81,7 @@ apiRouter.post(endpoint + 'produtos', (req, res) => {
 })
 
 apiRouter.put(endpoint + 'produtos', (req, res) => {
-    knex('produtos')
+    knex('produto')
         .insert({
             id: req.body.id,
             descricao: req.body.descricao,
