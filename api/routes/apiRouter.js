@@ -60,6 +60,46 @@ const knex = require('knex')({
 let apiRouter = express.Router()
 const endpoint = '/'
 
+
+apiRouter.post(endpoint + 'produtos', (req, res) => {
+    knex('produtos')
+        .insert({
+            descricao: req.body.descricao,
+            valor: req.body.valor,
+            marca: req.body.marca
+        }, ['id'])
+        .then((result) => {
+            let produtos = result[0]
+            res.status(200).json({ "id": produtos.id })
+            return
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Erro ao registrar produtos - ' + err.message
+            })
+        })
+})
+
+apiRouter.put(endpoint + 'produtos', (req, res) => {
+    knex('produtos')
+        .insert({
+            id: req.body.id,
+            descricao: req.body.descricao,
+            valor: req.body.valor,
+            marca: req.body.marca
+        }, ['id'])
+        .then((result) => {
+            let produtos = result[0]
+            res.status(200).json({ "id": produtos.id })
+            return
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'Erro ao alterar produtos - ' + err.message
+            })
+        })
+})
+
 apiRouter.get(endpoint + 'produtos', checkToken, (req, res) => {
     knex.select('*').from('produto')
         .then(produtos => res.status(200).json(produtos))
