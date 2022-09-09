@@ -63,7 +63,7 @@ const endpoint = '/'
 
 apiRouter.post(endpoint + 'produtos', (req, res) => {
     knex('produto')
-        .insert({
+        .update({
             descricao: req.body.descricao,
             valor: req.body.valor,
             marca: req.body.marca
@@ -99,6 +99,17 @@ apiRouter.put(endpoint + 'produtos', (req, res) => {
             })
         })
 })
+
+apiRouter.delete(endpoint + 'produtos/:id', checkToken, (req, res) => {
+    knex.delete('*').from('produto').where({ id: req.params.id })
+        .then(produtos => res.status(200).json(produtos))
+        .catch(err => {
+            res.status(500).json({
+                message: 'Erro ao deletar produto - ' + err.message
+            })
+        })
+})
+
 
 apiRouter.get(endpoint + 'produtos', checkToken, (req, res) => {
     knex.select('*').from('produto')
