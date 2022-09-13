@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "ffa4e845-28e7-470f-9904-68097d4dbf9b",
+		"name": "apirestful",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscar por id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyNzQ4Nzg1LCJleHAiOjE2NjI3NTIzODV9.E0iUXvR1eE0nIggB41P3fzLBCv9I-1mkJfSmxX8AYSU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/produtos/2",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"produtos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seguranca register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Rodrigo Prado\",\r\n    \"login\": \"rodrigo123\",\r\n    \"senha\": \"teste\",\r\n    \"email\":\"xpto@gmail.com.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/seguranca/register",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"seguranca",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seguranca login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"admin\",\r\n    \"senha\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/seguranca/login",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"seguranca",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inserir produto ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyNzUwMzQ3LCJleHAiOjE2NjI3NTM5NDd9.zkfXWr-eNx8rxwuPwVRHqpERmrjMrz_wk2Fe8f1ey6o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"descricao\": \"Macarrão 250gr\",\r\n        \"valor\": \"7.2\",\r\n        \"marca\": \"Renata\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/produtos",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "alterar produto ",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyNzUwMzQ3LCJleHAiOjE2NjI3NTM5NDd9.zkfXWr-eNx8rxwuPwVRHqpERmrjMrz_wk2Fe8f1ey6o",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"descricao\": \"Macarrão 250gr\",\r\n        \"valor\": \"7.2\",\r\n        \"marca\": \"Renata\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/produtos/9",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"produtos",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excluir por id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyNzUwMzQ3LCJleHAiOjE2NjI3NTM5NDd9.zkfXWr-eNx8rxwuPwVRHqpERmrjMrz_wk2Fe8f1ey6o",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/produtos/9",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"produtos",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar todos produtos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyNzQ4Nzg1LCJleHAiOjE2NjI3NTIzODV9.E0iUXvR1eE0nIggB41P3fzLBCv9I-1mkJfSmxX8AYSU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://appnoderodri.herokuapp.com/api/produtos",
+					"protocol": "https",
+					"host": [
+						"appnoderodri",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

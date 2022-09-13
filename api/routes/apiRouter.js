@@ -183,8 +183,4 @@ apiRouter.post(endpoint + 'seguranca/login', (req, res) => {
         })
 })
 
-
-
-
-
 module.exports = apiRouter;
